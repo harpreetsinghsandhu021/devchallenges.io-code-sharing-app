@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
-export const POST = async (req: Request) => {
+export async function POST(req: Request) {
   try {
     const body = await req.json();
 
@@ -19,6 +19,8 @@ export const POST = async (req: Request) => {
 
     return NextResponse.json({ codeSnippet }, { status: 200 });
   } catch (err) {
-    return err;
+    return NextResponse.json({
+      err: err,
+    });
   }
-};
+}

@@ -94,8 +94,10 @@ const CodeEditor = () => {
             <SelectValue placeholder="Light" />
           </SelectTrigger>
           <SelectContent defaultValue={"Light"}>
-            {config.defaultThemes.map((theme) => (
-              <SelectItem value={theme}>{theme}</SelectItem>
+            {config.defaultThemes.map((theme, index) => (
+              <SelectItem key={index} value={theme}>
+                {theme}
+              </SelectItem>
             ))}
           </SelectContent>
         </Select>
